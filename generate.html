@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIZARD NAME GENERATOR</title>
+    <link rel="stylesheet" href="/ASSETS/CSS/style.css">
+</head>
+<body>
+
+<div class="border-top"></div> <!-- Black border at the top -->
+<img src="/ASSETS/IMAGES/hogwarts logo.png" alt="Hogwart Logo" class="hogwart-logo">
+</div>
+
+</div> <!-- Replace "hogwart_text_image.png" with the path to your image -->
+<div id="backButton" class="arrow-left">&#x2190;</div>
+
+<div class="container">
+
+    <div class="header">
+        <img src="/ASSETS/IMAGES/wizard.png" alt="Wizard Image">
+        <h1>WIZARD NAME <span>GENERATOR</span></h1>
+    </div>
+    <div class="options">
+        <div class="gender-options">
+            <label class="option male selected" onclick="selectGender('male')">
+                <input type="radio" id="male" name="gender" value="male" checked>
+                MALE
+            </label>
+            <label class="option female" onclick="selectGender('female')">
+                <input type="radio" id="female" name="gender" value="female">
+                FEMALE
+            </label>
+        </div>
+        <button class="option generate" onclick="nameQty()">GENERATE NAMES</button>
+    </div>
+    <div class="generated-names">
+        <h2>Generated Name</h2>
+        <p class="nameList">CLICK ON GENERATE BUTTON</p>
+    </div>
+</div>
+
+<script src="/ASSETS/JS/app.js"></script>
+</body>
+</html>
