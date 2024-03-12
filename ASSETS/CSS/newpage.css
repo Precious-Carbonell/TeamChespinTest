@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "MyCustomFont";
+    src: url("../Fonts/AnimalesFantastic-lGly.ttf");
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "MyCustomFont";
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-section {
+    flex: 1;
+    background-size: cover;
+    background-image: url(../Images/book.gif);
+    background-position: -200px 0; 
+}
+  
+  .right-section {
+    flex: 1;
+    background-color: #96C18F; /* Set your desired background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .content {
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.buttons button {
+    padding: 10px 20px;
+    margin: 20px 10px; /* Increase the margin to make the buttons a little bit far from each other */
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #447B4A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: "MyCustomFont";
+    width: 150px; /* Set a fixed width for the buttons */
+    height: 50px; /* Set a fixed height for the buttons */
+}
+  
+.buttons button:hover {
+    background-color: #365632; /* Change the background color when hovered */
+    transform: scale(1.05); /* Make the button a little bit bigger when hovered */
+    transition: all 0.3s ease; /* Add a transition effect */
+}
+  
+  .buttons button:focus {
+    outline: none;
+  }
+  
+  h1 {
+    font-size: 80px; /* Adjust this value to make the text bigger */
+}
+  
+body.fadeout {
+  animation: fadeout 1s forwards;
+  background-color: black;
+}
+
+@keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
