@@ -1,0 +1,127 @@
+@font-face {
+    font-family: "MyCustomFont";
+    src: url('../FONTS/AnimalesFantastic-lGly.ttf') format('truetype');
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #A574A6;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling while the GIF is displayed */
+}
+h1 {
+    position: relative; /* Required for z-index to take effect */
+    z-index: 2000; /* Any value higher than the z-index of .gif-overlay */
+}
+
+.gif-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../IMAGES/gifgit.gif') center center no-repeat;
+    background-size: cover;
+    display: none;
+    z-index: 1000; /* Make sure this is lower than the z-index of h1 */
+    animation: fadeIn 0.5s ease-in; /* Adjust the duration as needed */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+.arrow-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    background: none; /* Remove background color */
+    border: none; /* Remove border */
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.image {
+    display: flex;
+    justify-content: flex-end; /* Align the image to the right of its grid cell */
+    margin-right: 10px;
+}
+
+
+.image img {
+    width: 500px; /* Adjust image width to make it larger */
+    height: auto;
+    border-radius: 10px;
+}
+
+
+.text {
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+    font-size: 30px;
+    font-style: normal;
+    font-family: "MyCustomFont";
+    letter-spacing: 5px; 
+    line-height: 0.3; /* Adjust this value to change the space between lines */
+    margin-right: 900px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title, .subtitle {
+    /* Other styles... */
+    letter-spacing: 5px; /* Adjust this value to reduce the space between letters */
+    white-space: nowrap; /* Prevents the text from wrapping to the next line */
+    text-align: center;
+   
+}
+
+.launch-btn {
+    margin: 0; /* Remove default margins */
+}
+
+.launch-btn {
+    background-color: #4E374E; /* Set the background color */
+    color: #fff; /* Set the text color */
+    border: 2px solid #4E374E; /* Set border color and width */
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.slow-fade-out {
+    animation: slowFadeOut 2s 1s forwards; /* Adjust the duration and delay as needed */
+}
+
+@keyframes slowFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
