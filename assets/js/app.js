@@ -10,11 +10,9 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 let cart = {};
 
-//hacer fetch de productos luego de que carga la web
 document.addEventListener('DOMContentLoaded', () => {
   fetchProducts();
 
-  //si existe un cart en local storage, lo muestra
   if (localStorage.getItem('cart')) {
     cart = JSON.parse(localStorage.getItem('cart'));
     displayCart(cart);
@@ -22,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-//añadir objetos al carrito al hacer click en "agregar"
+
 varitasContainer.addEventListener('click', (event) => {
   addToCart(event);
   
@@ -33,19 +31,18 @@ varitasContainer.addEventListener('click', (event) => {
 
 cartContainer.addEventListener('click', (event) => {
 
-  //restar item desde el boton -
+
   if (event.target.classList.contains("btn-minus")) {
     let id = event.target.parentElement.parentElement.getAttribute('data-id')
     cart[id].quantity--;
 
-    //borrar item si la cantidad es 0
     if (cart[id].quantity === 0) {
       delete cart[id];
     }
     displayCart(cart)
 
 
-  } else if (event.target.classList.contains("btn-plus")) { //sumar item desde el boton +
+  } else if (event.target.classList.contains("btn-plus")) { 
     let id = event.target.parentElement.parentElement.getAttribute('data-id')
     cart[id].quantity++;
     displayCart(cart)
@@ -55,8 +52,6 @@ cartContainer.addEventListener('click', (event) => {
   });
 
  
-
-  //fetch de la api de productos
 const fetchProducts = async () => {
   try {
     const res = await fetch('https://my-json-server.typicode.com/DaianaArena/ollivanders-json/products');
@@ -70,7 +65,6 @@ const fetchProducts = async () => {
   }
 };
 
-//mostrar productos desde el dom
 function displayProducts  (products) {
   products.forEach(product => {
 
@@ -83,7 +77,6 @@ function displayProducts  (products) {
     templateCard.querySelector('button').setAttribute('data-id', product.id);
 
 
-    //Elegir el color del badge dependiendo de la casa
     templateCard.querySelector('span').removeAttribute('class')
     templateCard.querySelector('span').setAttribute('class', 'badge');
 
@@ -110,14 +103,13 @@ function displayProducts  (products) {
   varitasContainer.appendChild(fragment);
 }
 
-//añade al carrito solo si tocan en el boton "agregar"
+
 const addToCart = (event) => {
 
 
  if (event.target.classList.contains("btn-primary")) {
     setCart(event.target.parentElement);
 
-    //mensaje de agregado al carrito
 
     addToCartBadge.style.display = 'block';
     setTimeout(function(){
@@ -128,7 +120,6 @@ const addToCart = (event) => {
   event.stopPropagation();
 }
 
-//crea el objeto producto y lo añade al carrito
 const setCart = object => {
 
   const product = {
@@ -149,8 +140,6 @@ const setCart = object => {
 
   displayCart(cart);
 }
-
-//muestra el carrito desde el dom
 function displayCart(cart) {
 
   cartContainer.innerHTML = '';
@@ -171,13 +160,11 @@ function displayCart(cart) {
   cartContainer.appendChild(fragment);
   displayFooter(cart);
 
-  // guardar carrito en local storage
   localStorage.setItem('cart', JSON.stringify(cart));
 
 }
 
 
-//muestra el footer desde el dom
 function displayFooter(cart) {
   footerContainer.innerHTML = '';
   if (Object.keys(cart).length === 0) {
@@ -200,7 +187,6 @@ function displayFooter(cart) {
     footerContainer.appendChild(fragment);
 
 
-    //borrar carrito al hacer click en "vaciar carrito"
     const vaciarCarrito = document.getElementById("vaciar-carrito")
     vaciarCarrito.addEventListener('click', (event) => {
       cart = {};
@@ -212,7 +198,6 @@ function displayFooter(cart) {
 
 }
 
-//mostrar secciones
 function goToHome() {
   document.getElementById('inicio').style.display = 'block';
   document.getElementById('varitas').style.display = 'none';
@@ -230,5 +215,3 @@ function goToCart() {
   document.getElementById('varitas').style.display = 'none';
   document.getElementById('carrito').style.display = 'block';
 }
-
-//cerrar menu al hacer click en un link
