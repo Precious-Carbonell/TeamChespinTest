@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #A574A6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+}
+.arrow-left {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    color: white;
+    font-size: 30px; /* Adjust font size as needed */
+    cursor: pointer;
+}
+.border-top {
+    position: fixed; /* Fixed position to stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Adjust as needed */
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.hogwart-logo {
+    position: absolute;
+    top: 10px; /* Position the logo at the top */
+    left: 20px; /* Position the logo at the left */
+    height: 40px; /* Adjust the height as needed */
+}
+
+
+
+.container {
+    width: calc(768px - 1rem);
+    background: #0f2229;
+    color: #fff;
+    padding: 16px;
+    border-radius: 10px;
+}
+.option {
+    cursor: pointer;
+    display: block; /* Make the label a block element to occupy the entire line */
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+/* Highlight the selected option */
+.option.selected {
+    font-weight: bold; /* Add visual indication of selection */
+}
+
+
+.container .header {
+    position: relative; /* Add this line to position the wizard image relative to the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.container .header img {
+    width: 230px; /* Increased size of the wizard image */
+    height: auto;
+    position: absolute; /* Position the wizard image absolutely within the container */
+    top: -20px; /* Adjust as needed to align with the top of the border */
+    left: -10px; /* Adjust as needed to align with the left of the border */
+    
+}
+
+
+.container .header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative; /* Add this line to enable animation */
+}
+
+.container .header h1::after {
+    content: ''; /* Add this line to create the effect */
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Adjust as needed */
+    background-color: #A574A6;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0); /* Initially hidden */
+    transform-origin: bottom right;
+    transition: transform 0.2s ease; /* Add transition effect */
+}
+
+.container .header h1:hover::after {
+    transform: scaleX(1); /* Show effect on hover */
+    transform-origin: bottom left;
+}
+
+/* New CSS to change color of "GENERATOR" */
+.container .header h1 span {
+    color: #A574A6; /* Same color as the background */
+}
+
+
+
+.container .options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container .gender-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.container .option {
+    border: 2px solid transparent; /* Added border */
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.container .option:hover {
+    border-color: #fff; /* Change border color on hover */
+}
+
+.container .option input[type="radio"] {
+    display: none; /* Hide radio buttons */
+}
+
+.container .generated-names {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.container .generated-names h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.container .nameList {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    letter-spacing: .3px;
+}
+
+.container button {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    outline: none;
+    background: #0f2229;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background: #1f3841;
+}
+/* Your existing CSS */
+
+.container .option {
+    border: 2px solid transparent; /* Initially hide the border */
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.container .option:hover {
+    border-color: #fff; /* Change border color on hover */
+}
+
+.container .option.selected {
+    border: 2px solid white; /* Show the border when selected */
+}
+
+.generated-names {
+    padding: 10px;
+    text-align: center;
+    opacity: 0; /* Initial opacity */
+    transform: translateY(-20px); /* Initial position above */
+    animation: fadeInAndSlide 0.5s ease-in-out forwards; /* Add animation */
+    position: relative; /* Position relative to allow absolute positioning */
+}
+
+.generated-names::before {
+    content: "";
+    background: url('../IMAGES/thunder.gif') repeat; /* Replace 'your-gif-url.gif' with the URL of your GIF */
+    position: absolute;
+    top: -10px; /* Adjust as needed */
+    left: -10px; /* Adjust as needed */
+    right: -10px; /* Adjust as needed */
+    bottom: -10px; /* Adjust as needed */
+    z-index: -1; /* Place it behind the content */
+    border-radius: 10px; /* Adjust to match the border radius */
+}
+
+@keyframes fadeInAndSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
+    }
+    50% {
+        text-shadow: none;
+    }
+    100% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff, 0 0 70px #ffffff;
+    }
+}
+
+.nameList {
+    animation: glow 1.5s infinite alternate; /* Add glowing animation to the text */
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+    
+    .container .header img {
+        width: 180px; /* Adjust the size of the wizard image for smaller screens */
+        top: -10px; /* Adjust the position of the wizard image for smaller screens */
+        left: -5px; /* Adjust the position of the wizard image for smaller screens */
+    }
+
+}
